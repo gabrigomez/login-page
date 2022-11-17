@@ -20,7 +20,5 @@ export default {
 </script>
 
 <style>
-  .navbar {
-    background: #1e2833
-  }
+
 </style>
