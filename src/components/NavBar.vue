@@ -2,14 +2,14 @@
     <div>
         <nav class="navbar">
             <div class="container">
-              <a href="#" class="navbar-brand">Home</a>
+              <router-link to="/" class="navbar-brand">Home</router-link>
               <div class="login-container">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">Login</a>
+                    <router-link to="/login" class="nav-link">Login</router-link>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">Sign Up</a>                    
+                    <router-link to="/signup" class="nav-link">Sign Up</router-link>                    
                   </li>        
                 </ul>
               </div>
