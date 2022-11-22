@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name: 'VueLoginSignUp',
 
@@ -52,14 +54,16 @@ export default {
     },
 
     methods: {
-        handleSubmit() {
+        async handleSubmit() {
             const data = {
                 first_name: this.first_name,
                 email: this.email,
                 password: this.password,
                 passwordConfirmation: this.passwordConfirmation
             }
+            await axios.post('users', data)
             console.log(data)
+            this.$router.push('/login')
         }
     },
 };
