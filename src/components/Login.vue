@@ -28,6 +28,7 @@
 
 <script>
 import axios from 'axios'
+
 export default {
     name: 'LoginPage',
 
@@ -44,13 +45,14 @@ export default {
 
     methods: {
         async handleSubmit() {
-            const data = {
+            const response = await axios.post('login', {
                 email: this.email,
                 password: this.password,
-            }
-            await axios.post('login', data)
-            console.log(data)
-            //this.$router.push('/login')
+            })            
+            
+            localStorage.setItem('token', response.data.accessToken)
+            //console.log(localStorage.getItem('token'))
+            
         }
     },
 };
