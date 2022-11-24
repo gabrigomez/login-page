@@ -12,12 +12,16 @@ import axios from 'axios'
 
 export default {
     name: 'VueLoginHome',
-    
+    async created() {
+        const response = await axios.get('users/:id')
+
+        console.log(response)
+    },
     
     data() {
         return {
-            
-        };
+            id: this.$route.params.id 
+        }
     },
 
     mounted() {
@@ -25,11 +29,7 @@ export default {
     },
 
     methods: {
-        async created() {
-        const response = await axios.get('user')
-
-        console.log(response)
-    }
+        
 
     },
 };

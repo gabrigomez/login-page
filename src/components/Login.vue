@@ -51,7 +51,8 @@ export default {
             })            
             
             localStorage.setItem('token', response.data.accessToken)
-            //console.log(localStorage.getItem('token'))
+            //console.log(response)
+            this.$router.push(`/${response.data.user.id}`)
             
         }
     },
