@@ -10,7 +10,7 @@ import './axios'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/id', name: 'Home', component: Home },
+        { path: '/', name: 'Home', component: Home },
         { path: '/login', name: 'Login', component: Login },
         { path: '/signup', name: 'Sign Up', component: SignUp },
     ]

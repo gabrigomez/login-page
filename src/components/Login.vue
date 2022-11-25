@@ -35,7 +35,7 @@ export default {
     data() {
         return {
             email: '',
-            password: '',
+            password: '',            
         };
     },
 
@@ -47,12 +47,12 @@ export default {
         async handleSubmit() {
             const response = await axios.post('login', {
                 email: this.email,
-                password: this.password,
+                password: this.password,                
             })            
             
             localStorage.setItem('token', response.data.accessToken)
-            //console.log(response)
-            this.$router.push(`/${response.data.user.id}`)
+            console.log(response)            
+            this.$router.push('/')         
             
         }
     },
