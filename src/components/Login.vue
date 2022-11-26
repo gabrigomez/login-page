@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
     name: 'LoginPage',
@@ -38,22 +37,30 @@ export default {
             password: '',            
         };
     },
+    computed: {
+        loggedIn() {
+            return this.$store.state.auth.status.loggedIn;
+        }
+    },
 
     mounted() {
         
     },
+    created() {
+        if (this.loggedIn) {
+        this.$router.push('/dashboard');
+        }
+    },
 
     methods: {
-        async handleSubmit() {
-            const response = await axios.post('login', {
-                email: this.email,
-                password: this.password,                
-            })            
-            
-            localStorage.setItem('token', response.data.accessToken)
-            console.log(response)            
-            this.$router.push('/dashboard')         
-            
+        handleSubmit() {
+            if (this.user && this.password) {
+                console.log('triggou')
+                this.$store.dispatch('/login', this.user)
+                    .then(() => {
+                        this.$router.push('/dashboard');
+                    })                    
+            }           
         }
     },
 };
