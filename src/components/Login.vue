@@ -52,7 +52,7 @@ export default {
             
             localStorage.setItem('token', response.data.accessToken)
             console.log(response)            
-            this.$router.push('/')         
+            this.$router.push('/dashboard')         
             
         }
     },
