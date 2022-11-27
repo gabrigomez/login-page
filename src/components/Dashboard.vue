@@ -1,7 +1,7 @@
 <template>
     <div class="dashboard-background">
         <div class="dashboard-main-div">
-            <h1>Hi, {{currentUser.user.email}}</h1>
+            <h1>Hi, {{currentUser.user.email}}!</h1>
             <p>here's your dashboard application</p>
         </div>
     </div>

@@ -6,10 +6,12 @@
               <div class="login-container">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                    <router-link to="/login" class="nav-link">Login</router-link>
+                    <router-link to="/login" class="nav-link" v-if="!currentUser">Login</router-link>
+                    <router-link to="/dashboard" class="nav-link" v-else>Dashboard</router-link>
                   </li>
                   <li class="nav-item">
-                    <router-link to="/signup" class="nav-link">Sign Up</router-link>                    
+                    <router-link to="/signup" class="nav-link" v-if="!currentUser">Sign Up</router-link>
+                    <router-link to="/" class="nav-link">Log out</router-link>                    
                   </li>        
                 </ul>
               </div>
@@ -21,6 +23,11 @@
 <script>
 export default {
     name: 'NavBar',
+    computed: {        
+        currentUser() {
+            return this.$store.state.auth.user;
+        }
+    },
 
     data() {
         return {

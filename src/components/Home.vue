@@ -13,10 +13,6 @@ export default {
     name: 'VueLoginHome',
     
     
-    data() {
-        
-    },
-
     mounted() {
         
     },
