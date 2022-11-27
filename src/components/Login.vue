@@ -54,14 +54,12 @@ export default {
 
     methods: {
         handleSubmit() {
-            console.log(this.user)
-            console.log(localStorage.getItem('user'))
-            if (this.user.email && this.user.password) {
-                console.log('triggou')
+            if (this.user.email && this.user.password) {                
                 this.$store.dispatch('auth/login', this.user)
                     .then(() => {
                         this.$router.push('/dashboard');
-                    })                    
+                        },
+                    )                    
             }           
         }
     },
