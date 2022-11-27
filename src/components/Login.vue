@@ -10,10 +10,10 @@
                     </i>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="email" name="email" placeholder="Email" v-model="email">
+                    <input class="form-control" type="email" name="email" placeholder="Email" v-model="user.email">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" name="password" placeholder="Password" v-model="password">
+                    <input class="form-control" type="password" name="password" placeholder="Password" v-model="user.password">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">
@@ -27,14 +27,14 @@
 </template>
 
 <script>
+import User from '../models/user'
 
 export default {
     name: 'LoginPage',
 
     data() {
         return {
-            email: '',
-            password: '',            
+            user: new User ('', ''),            
         };
     },
     computed: {
@@ -48,15 +48,17 @@ export default {
     },
     created() {
         if (this.loggedIn) {
-        this.$router.push('/dashboard');
+            this.$router.push('/dashboard');
         }
     },
 
     methods: {
         handleSubmit() {
-            if (this.user && this.password) {
+            console.log(this.user)
+            console.log(localStorage.getItem('user'))
+            if (this.user.email && this.user.password) {
                 console.log('triggou')
-                this.$store.dispatch('/login', this.user)
+                this.$store.dispatch('auth/login', this.user)
                     .then(() => {
                         this.$router.push('/dashboard');
                     })                    
