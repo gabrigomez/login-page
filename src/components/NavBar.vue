@@ -11,7 +11,7 @@
                   </li>
                   <li class="nav-item">
                     <router-link to="/signup" class="nav-link" v-if="!currentUser">Sign Up</router-link>
-                    <router-link to="/" class="nav-link">Log out</router-link>                    
+                    <a href @click.prevent="handleLogout" class="nav-link" v-else>Log out</a>                    
                   </li>        
                 </ul>
               </div>
@@ -25,7 +25,7 @@ export default {
     name: 'NavBar',
     computed: {        
         currentUser() {
-            return this.$store.state.auth.user;
+          return this.$store.state.auth.user;
         }
     },
 
@@ -40,7 +40,12 @@ export default {
     },
 
     methods: {
-        
+      handleLogout () {
+        this.$store.dispatch('auth/logout')
+          .then(() => {
+            this.$router.push('/login');
+          }) 
+        }
     },
 };
 </script>
