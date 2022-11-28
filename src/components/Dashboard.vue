@@ -34,7 +34,7 @@ export default {
 
     .dashboard-background {
         height:1000px;
-        background:#475d62 url(https://wallpaperaccess.com/full/1219743.jpg);
+        background:#475d62 url(https://wallpaper.dog/large/20514944.jpg);
         background-size:cover;
         position:relative;
     }

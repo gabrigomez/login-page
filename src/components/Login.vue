@@ -69,7 +69,7 @@ export default {
 <style scoped>
     .login-dark {
         height:1000px;
-        background:#475d62 url(https://wallpapercave.com/wp/wp2567217.jpg);
+        background:#475d62 url(https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/non-4k/preview/29.jpg?3);
         background-size:cover;
         position:relative;
     }
