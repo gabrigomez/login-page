@@ -52,13 +52,19 @@ export default {
 
 <style scoped>
   .navbar {
-    background: #1e2833;
+    background: linear-gradient(50deg, rgba(0,0,0,1) 0%, rgba(13,1,70,0.6867121848739496) 89%);
   }
   .navbar-brand, .nav-link {
-    color:aliceblue;
+    text-decoration: none;
+        color: #FFFF;
+        font-size: 20px;
+        font-weight: 300;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        text-transform: uppercase;
   }
   .nav-link:hover, .navbar-brand:hover {
-    color:#214a80
+    color:#ac04ee
   }
   .navbar-nav {
     display: flex;
@@ -67,4 +73,5 @@ export default {
   .nav-item {
     margin: 10px;
   }
+  
 </style>
