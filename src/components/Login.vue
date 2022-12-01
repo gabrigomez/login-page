@@ -5,10 +5,6 @@
                 <h2 class="sr-only">
                     Login Form
                 </h2>
-                <div class="illustration">
-                    <i class="icon ion-ios-locked-outline">                            
-                    </i>
-                </div>
                 <div v-if="errors.length">
                     {{errors}}
                 </div>
@@ -59,7 +55,7 @@ export default {
     methods: {
         handleSubmit() {            
             this.errors = []
-            
+
             if (!this.user.email) {
                 this.errors.push('E-mail is required!')
             }

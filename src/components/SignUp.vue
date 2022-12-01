@@ -5,11 +5,7 @@
                 <form @submit.prevent="handleSubmit" method="post">
                     <h2 class="sr-only">
                         Sign up Form
-                    </h2>
-                    <div class="illustration">
-                        <i class="icon ion-ios-locked-outline">                            
-                        </i>
-                    </div>
+                    </h2>                    
                     <div class="form-group">
                         <input class="form-control" type="name" name="firstName" placeholder="Name" v-model=first_name>
                     </div>
