@@ -9,6 +9,9 @@
                     <i class="icon ion-ios-locked-outline">                            
                     </i>
                 </div>
+                <div v-if="errors.length">
+                    {{errors}}
+                </div>
                 <div class="form-group">
                     <input class="form-control" type="email" name="email" placeholder="Email" v-model="user.email">
                 </div>
@@ -34,7 +37,8 @@ export default {
 
     data() {
         return {
-            user: new User ('', ''),            
+            user: new User ('', ''),
+            errors: [],            
         };
     },
     computed: {
@@ -53,7 +57,15 @@ export default {
     },
 
     methods: {
-        handleSubmit() {
+        handleSubmit() {            
+            this.errors = []
+            
+            if (!this.user.email) {
+                this.errors.push('E-mail is required!')
+            }
+            if (!this.user.password) {
+                this.errors.push('Password is required!')
+            }
             if (this.user.email && this.user.password) {                
                 this.$store.dispatch('auth/login', this.user)
                     .then(() => {
