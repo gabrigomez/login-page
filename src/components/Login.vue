@@ -5,9 +5,6 @@
                 <h2 class="sr-only">
                     Login Form
                 </h2>
-                <div v-if="errors.length">
-                    {{errors}}
-                </div>
                 <div class="form-group">
                     <input class="form-control" type="email" name="email" placeholder="Email" v-model="user.email">
                 </div>
@@ -34,7 +31,7 @@ export default {
     data() {
         return {
             user: new User ('', ''),
-            errors: [],            
+            errors: '',            
         };
     },
     computed: {
@@ -57,17 +54,25 @@ export default {
             this.errors = []
 
             if (!this.user.email) {
-                this.errors.push('E-mail is required!')
+                this.errors = 'E-mail is required!'
+                this.$toast.error(`${this.errors}`, {
+                    position: "top-center",
+                })
             }
             if (!this.user.password) {
-                this.errors.push('Password is required!')
+                this.errors = 'Password is required!'
+                this.$toast.error(`${this.errors}`, {
+                    position: "top-center",
+                })
             }
             if (this.user.email && this.user.password) {                
                 this.$store.dispatch('auth/login', this.user)
                     .then(() => {
                         this.$router.push('/dashboard');
-                        },
-                    )                    
+                        this.$toast.success(`Logado com sucesso!`, {
+                        position: "top-center",
+                        })
+                    })                    
             }           
         }
     },
@@ -146,4 +151,5 @@ export default {
     .login-dark form .btn-primary:active {
         transform:translateY(1px);
     }
+
 </style>
