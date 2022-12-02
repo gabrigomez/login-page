@@ -6,7 +6,7 @@
                     <h2 class="sr-only">
                         Sign up Form
                     </h2>                    
-                    <div class="form-group">
+                    <div class="form-group">                        
                         <input class="form-control" type="name" name="firstName" placeholder="Name" v-model=first_name>
                     </div>
                     <div class="form-group">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block" type="submit">
-                            Log In
+                            Sign Up
                         </button>
                     </div>
                     <a href="#" class="forgot">Forgot your email or password?</a>
@@ -58,15 +58,20 @@ export default {
                 passwordConfirmation: this.passwordConfirmation
             }
             await axios.post('users', data)
-            console.log(data)
-            this.$router.push('/login')
+                .then(() => {
+                    this.$router.push('/login')
+                    this.$toast.success(`Cadastro realizado com sucesso!`, {
+                            position: "top-center",
+                    })
+                })            
         }
     },
 };
 </script>
 
 <style scoped>
-.sign-up-dark {
+
+    .sign-up-dark {
         height:1000px;
         background:#475d62 url(https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/non-4k/preview/29.jpg?3);
         background-size:cover;
@@ -101,7 +106,7 @@ export default {
         border-radius:0;
         box-shadow:none;
         outline:none;
-        color:inherit;
+        color:inherit;        
     }
 
     .sign-up-dark form .btn-primary {
