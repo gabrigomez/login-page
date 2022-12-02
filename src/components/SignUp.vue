@@ -7,13 +7,13 @@
                         Sign up Form
                     </h2>                    
                     <div class="form-group">                        
-                        <input class="form-control" type="name" name="firstName" placeholder="Name" v-model=first_name>
+                        <input class="form-control" type="name" name="firstName" placeholder="Name" v-model=user.first_name>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="email" name="email" placeholder="Email" v-model=email>
+                        <input class="form-control" type="email" name="email" placeholder="Email" v-model=user.email>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="password" placeholder="Password" v-model=password>
+                        <input class="form-control" type="password" name="password" placeholder="Password" v-model=user.password>
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="password" name="confirmPassword" placeholder="Confirm your password" v-model=passwordConfirmation>
@@ -31,17 +31,15 @@
 </template>
 
 <script>
-import axios from 'axios'
+import User from '../models/user'
 
 export default {
     name: 'VueLoginSignUp',
 
     data() {
         return {
-            first_name: '',
-            email: '',
-            password: '',
-            passwordConfirmation: '',
+            user: new User ('', ''),
+            passwordConfirmation: this.passwordConfirmation
         };
     },
 
@@ -50,14 +48,9 @@ export default {
     },
 
     methods: {
-        async handleSubmit() {
-            const data = {
-                first_name: this.first_name,
-                email: this.email,
-                password: this.password,
-                passwordConfirmation: this.passwordConfirmation
-            }
-            await axios.post('users', data)
+        handleSubmit() {
+            console.log(this.user)
+            this.$store.dispatch('auth/register', this.user)
                 .then(() => {
                     this.$router.push('/login')
                     this.$toast.success(`Cadastro realizado com sucesso!`, {
