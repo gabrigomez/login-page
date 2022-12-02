@@ -31,7 +31,8 @@ export default {
     data() {
         return {
             user: new User ('', ''),
-            errors: '',            
+            errors: '',
+            message: '',            
         };
     },
     computed: {
@@ -70,7 +71,13 @@ export default {
                     .then(() => {
                         this.$router.push('/dashboard');
                         this.$toast.success(`Logado com sucesso!`, {
-                        position: "top-center",
+                            position: "top-center",
+                        })
+                    },
+                    error => {
+                        this.message = (error.response && error.response.data) || error.message || error.toString();
+                        this.$toast.error(`${this.message}`, {
+                            position: "top-center",
                         })
                     })                    
             }           
