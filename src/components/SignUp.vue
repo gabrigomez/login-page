@@ -7,23 +7,28 @@
                         Sign up Form
                     </h2>                    
                     <div class="form-group">                        
-                        <input class="form-control" type="name" name="firstName" placeholder="Name" v-model=user.first_name>
+                        <input class="form-control" type="name" name="firstName" placeholder="Name" v-model=user.first_name v-validate="'required|min:3|max:20'">
+                        <div v-if="submitted && errors.has('firstName')" class="alert-danger"> Campo obrigatório!</div>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="email" name="email" placeholder="Email" v-model=user.email>
+                        <input class="form-control" type="email" name="email" placeholder="E-mail" v-model=user.email v-validate="'required|min:3|max:20'" >
+                        <div v-if="submitted && errors.has('email')" class="alert-danger"> Campo obrigatório!</div>
+
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="password" placeholder="Password" v-model=user.password>
+                        <input class="form-control" type="password" name="password" placeholder="Password" v-model=user.password v-validate="'required|min:3'">
+                        <div v-if="submitted && errors.has('password')" class="alert-danger"> Campo obrigatório!</div>
+
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="confirmPassword" placeholder="Confirm your password" v-model=passwordConfirmation>
+                        <input class="form-control" type="password" name="confirmPassword" placeholder="Confirm your password" v-model=passwordConfirmation v-validate="'required|min:3'">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block" type="submit">
                             Sign Up
                         </button>
                     </div>
-                    <a href="#" class="forgot">Forgot your email or password?</a>
+                    <a href="#" class="forgot">Esqueceu sua senha ou usuário? Clique aqui!</a>
                 </form>
             </div>    
         </div>     
@@ -39,7 +44,10 @@ export default {
     data() {
         return {
             user: new User ('', ''),
-            passwordConfirmation: this.passwordConfirmation
+            passwordConfirmation: this.passwordConfirmation,
+            message: '',
+            submitted: false,
+            passwordFail: false,
         };
     },
 
@@ -49,14 +57,34 @@ export default {
 
     methods: {
         handleSubmit() {
-            console.log(this.user)
-            this.$store.dispatch('auth/register', this.user)
-                .then(() => {
-                    this.$router.push('/login')
-                    this.$toast.success(`Cadastro realizado com sucesso!`, {
+            this.submitted = true;
+            this.$validator.validate().then(isValid => {
+                if(isValid) {
+                    if (this.user.password !== this.passwordConfirmation) {
+                        this.$toast.error("As senhas não conferem!", {
                             position: "top-center",
-                    })
-                })            
+                        })
+                        this.submitted = false;
+                        this.user.password = '';
+                        this.passwordConfirmation = '';                        
+                    } else {
+                        this.$store.dispatch('auth/register', this.user)
+                            .then(() => {
+                                this.$router.push('/login')
+                                this.$toast.success(`Cadastro realizado com sucesso!`, {
+                                        position: "top-center",
+                                })
+                            },
+                            error => {
+                                console.log('entrou aqui')
+                                this.message = (error.response && error.response.data) || error.message || error.toString();
+                                this.$toast.error(`${this.message}`, {
+                                    position: "top-center",
+                                })
+                            })            
+                    }
+                }
+            })
         }
     },
 };
