@@ -16,7 +16,7 @@
                 </ul>
               </div>
             </div>
-        </nav>
+          </nav>
     </div>
 </template>
 
@@ -52,16 +52,16 @@ export default {
 
 <style scoped>
   .navbar {
-    background: linear-gradient(50deg, rgba(0,0,0,1) 0%, rgba(13,1,70,0.6867121848739496) 89%);
+    background: #460150;
   }
   .navbar-brand, .nav-link {
     text-decoration: none;
-        color: #FFFF;
-        font-size: 20px;
-        font-weight: 300;
-        transition: all 0.3s ease-in-out;
-        position: relative;
-        text-transform: uppercase;
+    color: #FFFF;
+    font-size: 20px;
+    font-weight: 300;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    text-transform: uppercase;
   }
   .nav-link:hover, .navbar-brand:hover {
     color:#ac04ee
