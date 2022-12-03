@@ -8,16 +8,16 @@
                     </h2>                    
                     <div class="form-group">                        
                         <input class="form-control" type="name" name="firstName" placeholder="Name" v-model=user.first_name v-validate="'required|min:3|max:20'">
-                        <div v-if="submitted && errors.has('firstName')" class="alert-danger"> Campo obrigatório!</div>
+                        <div v-if="submitted && errors.has('firstName')" class="alert-danger">Campo obrigatório!</div>
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="email" name="email" placeholder="E-mail" v-model=user.email v-validate="'required|min:3|max:20'" >
-                        <div v-if="submitted && errors.has('email')" class="alert-danger"> Campo obrigatório!</div>
+                        <div v-if="submitted && errors.has('email')" class="alert-danger">Campo obrigatório!</div>
 
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="password" name="password" placeholder="Password" v-model=user.password v-validate="'required|min:3'">
-                        <div v-if="submitted && errors.has('password')" class="alert-danger"> Campo obrigatório!</div>
+                        <div v-if="submitted && errors.has('password')" class="alert-danger">Campo obrigatório!</div>
 
                     </div>
                     <div class="form-group">
@@ -72,7 +72,7 @@ export default {
                             .then(() => {
                                 this.$router.push('/login')
                                 this.$toast.success(`Cadastro realizado com sucesso!`, {
-                                        position: "top-center",
+                                    position: "top-center",
                                 })
                             },
                             error => {
