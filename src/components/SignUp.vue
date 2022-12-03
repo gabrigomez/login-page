@@ -92,6 +92,12 @@ export default {
 
 <style scoped>
 
+    .alert-danger {
+        text-align: center;
+        background: none;
+        color: slateblue;
+        font-size: 14px;
+    }
     .sign-up-dark {
         height:1000px;
         background:#475d62 url(https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/non-4k/preview/29.jpg?3);
