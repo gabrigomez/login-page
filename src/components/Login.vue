@@ -126,7 +126,7 @@ export default {
     }
 
     .login-dark form .btn-primary {
-        background:#214a80;
+        background: #710781;
         border:none;
         border-radius:4px;
         padding:11px;
