@@ -2,27 +2,43 @@
     <div>
         <nav class="navbar">
             <div class="container">
-              <router-link to="/" class="navbar-brand">Home</router-link>
+              <div class="nav-item-container">
+                <ph-house :size="24" color="white" class="icon-home" />
+                <router-link to="/" class="navbar-brand">Home</router-link>
+              </div>
               <div class="login-container">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                    <router-link to="/login" class="nav-link" v-if="!currentUser">Login</router-link>
-                    <router-link to="/dashboard" class="nav-link" v-else>Dashboard</router-link>
+                    <div class="nav-item-container">
+                      <ph-keyhole :size="24" color="white" class="icon" />
+                      <router-link to="/login" class="nav-link" v-if="!currentUser">Login</router-link>
+                      <router-link to="/dashboard" class="nav-link" v-else>Dashboard</router-link>
+                    </div>
                   </li>
                   <li class="nav-item">
-                    <router-link to="/signup" class="nav-link" v-if="!currentUser">Sign Up</router-link>
-                    <a href @click.prevent="handleLogout" class="nav-link" v-else>Log out</a>                    
+                    <div class="nav-item-container">
+                      <ph-sign-in :size="24" color="white" class="icon" />
+                      <router-link to="/signup" class="nav-link" v-if="!currentUser">Sign Up</router-link>
+                      <a href @click.prevent="handleLogout" class="nav-link" v-else>Log out</a>                    
+                    </div>
                   </li>        
                 </ul>
               </div>
             </div>
-          </nav>
+        </nav>
     </div>
 </template>
 
 <script>
+import { PhSignIn, PhKeyhole, PhHouse } from "phosphor-vue";
+
 export default {
     name: 'NavBar',
+    components: {
+      PhSignIn,
+      PhKeyhole,
+      PhHouse
+    },
     computed: {        
         currentUser() {
           return this.$store.state.auth.user;
@@ -72,6 +88,17 @@ export default {
   }
   .nav-item {
     margin: 10px;
+  }
+  .nav-item-container {
+    display: flex;
+  }
+  .icon {
+    margin-top: 10px;
+    margin-right: 4px;
+  }
+  .icon-home {
+    margin-top: 8px;
+    margin-right: 4px;
   }
   
 </style>
