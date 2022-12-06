@@ -28,7 +28,7 @@
                             Sign Up
                         </button>
                     </div>
-                    <a href="#" class="forgot">Esqueceu sua senha ou usuário? Clique aqui!</a>
+                    <router-link to="/login" class="login-page" v-if="!currentUser">Go to login page</router-link>
                 </form>
             </div>    
         </div>     
@@ -168,6 +168,17 @@ export default {
 
     .sign-up-dark form .btn-primary:active {
         transform:translateY(1px);
+    }
+    .login-page {
+        display:block;
+        text-align:center;
+        font-size:14px;
+        color:#6f7a85;
+        opacity:0.9;
+        text-decoration:none;
+    }
+    .login-page:hover {        
+        color:#ba06d6;
     }
 
 </style>

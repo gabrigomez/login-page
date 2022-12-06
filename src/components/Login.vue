@@ -153,6 +153,7 @@ export default {
     .login-dark form .forgot:hover, .login-dark form .forgot:active {
         opacity:1;
         text-decoration:none;
+        color: #ba06d6;
     }
 
     .login-dark form .btn-primary:active {
