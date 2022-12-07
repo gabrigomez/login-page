@@ -24,7 +24,7 @@
                         <input class="form-control" type="password" name="confirmPassword" placeholder="Confirm your password" v-model=passwordConfirmation v-validate="'required|min:3'">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-block" type="submit">
+                        <button class="submit-button" type="submit">
                             Sign Up
                         </button>
                     </div>
@@ -128,26 +128,38 @@ export default {
         outline:none;
         color:inherit;        
     }
-
-    .sign-up-dark form .btn-primary {
-        background: #710781;
-        border:none;
-        border-radius:4px;
-        padding:11px;
-        box-shadow:none;
-        margin-top:26px;
-        text-shadow:none;
-        outline:none;
+    .form-group {
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
     }
+    .submit-button {
+    		background: #89029e;
+    		border: none;
+    		border-radius: 4px;
+    		padding: 11px;
+      
+	  		box-shadow: none;
+    		margin-top: 26px;
+    		text-shadow: none;
+    		outline: none;
+      
+				color: #fff;
+				width: 100%;
+    }
+
+    .submit-button:hover {
+        background:#c900bb;
+        outline:none;
+        cursor: pointer;
+    }
+
 
     .sign-up-dark form .btn-primary:hover, .sign-up-dark form .btn-primary:active {
         background:#566880;
         outline:none;
     }
 
-    .sign-up-dark form .btn-primary:active {
-        transform:translateY(1px);
-    }
     .login-page {
         display:block;
         text-align:center;
