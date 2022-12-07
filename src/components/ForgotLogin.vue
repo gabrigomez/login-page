@@ -16,7 +16,7 @@
                     <input class="form-control" type="password" name="password" placeholder="Confirm Password" v-model="this.passwordConfirmation">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block" type="submit">
+                    <button class="submit-button" type="submit">
                         Change your password
                     </button>
                 </div>
@@ -80,24 +80,27 @@ export default {
         color:inherit;
     }
 
-    .login-dark form .btn-primary {
-        background: #710781;
-        border:none;
-        border-radius:4px;
-        padding:11px;
-        box-shadow:none;
-        margin-top:26px;
-        text-shadow:none;
-        outline:none;
+    .form-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .submit-button {
+      background: #89029e;
+      border: none;
+      border-radius: 4px;
+      padding: 11px;
+      box-shadow: none;
+      margin-top: 26px;
+      text-shadow: none;
+      outline: none;
+      color: #fff;
     }
 
-    .login-dark form .btn-primary:hover, .login-dark form .btn-primary:active {
-        background:#566880;
+    .submit-button:hover {
+        background:#c900bb;
         outline:none;
-    }
-
-    .login-dark form .btn-primary:active {
-        transform:translateY(1px);
+        cursor: pointer;
     }
 
     .login-page {
