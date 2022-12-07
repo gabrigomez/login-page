@@ -10,11 +10,14 @@
                     <input class="form-control" type="email" name="email" placeholder="Email" v-model="user.email">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" name="password" placeholder="Password" v-model="user.password">
+                    <input class="form-control" type="password" name="password" placeholder="New Password" v-model="user.password">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Confirm Password" v-model="this.passwordConfirmation">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">
-                        Log In
+                        Change your password
                     </button>
                 </div>
                 <router-link to="/login" class="login-page" v-if="!currentUser">Go to login page</router-link>
@@ -33,6 +36,7 @@ export default {
   data() {
     return {
             user: new User ('', ''),
+            passwordConfirmation: '',
             errors: '',
             message: '',            
         };
@@ -116,5 +120,17 @@ export default {
 
     .login-dark form .btn-primary:active {
         transform:translateY(1px);
+    }
+
+    .login-page {
+        display:block;
+        text-align:center;
+        font-size:14px;
+        color:#6f7a85;
+        opacity:0.9;
+        text-decoration:none;
+    }
+    .login-page:hover {        
+        color:#ba06d6;
     }
 </style>

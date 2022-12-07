@@ -160,4 +160,16 @@ export default {
         transform:translateY(1px);
     }
 
+		.login-page {
+        display:block;
+        text-align:center;
+        font-size:14px;
+        color:#6f7a85;
+        opacity:0.9;
+        text-decoration:none;
+    }
+    .login-page:hover {        
+        color:#ba06d6;
+    }
+
 </style>
