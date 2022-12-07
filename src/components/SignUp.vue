@@ -119,13 +119,6 @@ export default {
         box-shadow:3px 3px 4px rgba(0,0,0,0.2);
     }
 
-    .sign-up-dark .illustration {
-        text-align:center;
-        padding:15px 0 20px;
-        font-size:100px;
-        color:#2980ef;
-    }
-
     .sign-up-dark form .form-control {
         background:none;
         border:none;
@@ -150,20 +143,6 @@ export default {
     .sign-up-dark form .btn-primary:hover, .sign-up-dark form .btn-primary:active {
         background:#566880;
         outline:none;
-    }
-
-    .sign-up-dark form .forgot {
-        display:block;
-        text-align:center;
-        font-size:12px;
-        color:#6f7a85;
-        opacity:0.9;
-        text-decoration:none;
-    }
-
-    .sign-up-dark form .forgot:hover, .sign-up-dark form .forgot:active {
-        opacity:1;
-        text-decoration:none;
     }
 
     .sign-up-dark form .btn-primary:active {
