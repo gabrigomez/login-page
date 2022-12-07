@@ -5,6 +5,7 @@ import Login from './components/Login.vue'
 import Home from './components/Home.vue'
 import SignUp from './components/SignUp.vue'
 import Dashboard from './components/Dashboard.vue'
+import ForgotLogin from './components/ForgotLogin.vue'
 
 Vue.use(Router);
 
@@ -32,6 +33,11 @@ export const router = new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard
-    },    
+    },
+    {
+      path: '/forgotlogin',
+      name: 'Forgot Login or Password',
+      component: ForgotLogin
+    },      
   ]
 });

@@ -1,9 +1,10 @@
-<template>    
+<template>
+  <div>
     <div>
         <div class="login-dark">
             <form method="post"  @submit.prevent="handleSubmit">
                 <h2 class="sr-only">
-                    Login Form
+                    Forgot password
                 </h2>
                 <div class="form-group">
                     <input class="form-control" type="email" name="email" placeholder="Email" v-model="user.email">
@@ -16,73 +17,30 @@
                         Log In
                     </button>
                 </div>
-                <router-link to="/forgotlogin" class="login-page">Forgot your email or password?</router-link>
+                <router-link to="/login" class="login-page" v-if="!currentUser">Go to login page</router-link>
             </form>
         </div>    
     </div> 
+  </div>
 </template>
 
 <script>
 import User from '../models/user'
 
 export default {
-    name: 'LoginPage',
+  name: 'VueLoginForgotLogin',
 
-    data() {
-        return {
+  data() {
+    return {
             user: new User ('', ''),
             errors: '',
             message: '',            
         };
-    },
-    computed: {
-        loggedIn() {
-            return this.$store.state.auth.status.loggedIn;
-        }
-    },
+  },
 
-    mounted() {
-        
-    },
-    created() {
-        if (this.loggedIn) {
-            this.$router.push('/dashboard');
-        }
-    },
-
-    methods: {
-        handleSubmit() {            
-            this.errors = []
-
-            if (!this.user.email) {
-                this.errors = 'E-mail is required!'
-                this.$toast.error(`${this.errors}`, {
-                    position: "top-center",
-                })
-            }
-            if (!this.user.password) {
-                this.errors = 'Password is required!'
-                this.$toast.error(`${this.errors}`, {
-                    position: "top-center",
-                })
-            }
-            if (this.user.email && this.user.password) {                
-                this.$store.dispatch('auth/login', this.user)
-                    .then(() => {
-                        this.$router.push('/dashboard');
-                        this.$toast.success(`Logado com sucesso!`, {
-                            position: "top-center",
-                        })
-                    },
-                    error => {
-                        this.message = (error.response && error.response.data) || error.message || error.toString();
-                        this.$toast.error(`${this.message}`, {
-                            position: "top-center",
-                        })
-                    })                    
-            }           
-        }
-    },
+  methods: {
+    
+  },
 };
 </script>
 
@@ -159,5 +117,4 @@ export default {
     .login-dark form .btn-primary:active {
         transform:translateY(1px);
     }
-
 </style>
