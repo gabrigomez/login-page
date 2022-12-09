@@ -24,7 +24,7 @@
         <div class="form-group">
           <button class="submit-button" type="submit">Log In</button>
         </div>
-        <router-link to="/signup" class="login-page" v-if="!currentUser">
+        <router-link to="/signup" class="login-page">
           Don't have an account? Sign up!
         </router-link>
       </form>
@@ -41,7 +41,6 @@ export default {
   data() {
     return {
       user: new User("", ""),
-      errors: "",
       message: "",
     };
   },
@@ -60,8 +59,6 @@ export default {
 
   methods: {
     handleSubmit() {
-      this.errors = [];
-
       if (!this.user.email) {
         this.errors = "E-mail is required!";
         this.$toast.error(`${this.errors}`, {

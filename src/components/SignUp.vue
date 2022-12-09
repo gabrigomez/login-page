@@ -62,7 +62,7 @@
           <div class="form-group">
             <button class="submit-button" type="submit">Sign Up</button>
           </div>
-          <router-link to="/login" class="login-page" v-if="!currentUser"
+          <router-link to="/login" class="login-page"
             >Go to login page</router-link
           >
         </form>
@@ -110,7 +110,6 @@ export default {
                 });
               },
               (error) => {
-                console.log("entrou aqui");
                 this.message =
                   (error.response && error.response.data) ||
                   error.message ||
