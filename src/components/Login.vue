@@ -60,14 +60,14 @@ export default {
   methods: {
     handleSubmit() {
       if (!this.user.email) {
-        this.errors = "E-mail is required!";
-        this.$toast.error(`${this.errors}`, {
+        this.message = "E-mail is required!";
+        this.$toast.error(`${this.message}`, {
           position: "top-center",
         });
       }
       if (!this.user.password) {
-        this.errors = "Password is required!";
-        this.$toast.error(`${this.errors}`, {
+        this.message = "Password is required!";
+        this.$toast.error(`${this.message}`, {
           position: "top-center",
         });
       }
