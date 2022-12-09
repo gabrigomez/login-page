@@ -24,6 +24,9 @@
         <div class="form-group">
           <button class="submit-button" type="submit">Log In</button>
         </div>
+        <router-link to="/signup" class="login-page" v-if="!currentUser">
+          Don't have an account? Sign up!
+        </router-link>
       </form>
     </div>
   </div>
