@@ -37,18 +37,12 @@ export default {
     PhKeyhole,
     PhHouse,
   },
+
   computed: {
     currentUser() {
       return this.$store.state.auth.user;
     },
   },
-
-  data() {
-    return {};
-  },
-
-  mounted() {},
-
   methods: {
     handleLogout() {
       this.$store.dispatch("auth/logout").then(() => {

@@ -10,6 +10,7 @@
 <script>
 export default {
   name: "VueLoginDashboard",
+
   computed: {
     currentUser() {
       return this.$store.state.auth.user;
@@ -21,8 +22,6 @@ export default {
       this.$router.push("/login");
     }
   },
-
-  methods: {},
 };
 </script>
 

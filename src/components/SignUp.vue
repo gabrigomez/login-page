@@ -93,8 +93,6 @@ export default {
     };
   },
 
-  mounted() {},
-
   methods: {
     handleSubmit() {
       this.submitted = true;
