@@ -24,9 +24,6 @@
         <div class="form-group">
           <button class="submit-button" type="submit">Log In</button>
         </div>
-        <router-link to="/forgotlogin" class="login-page"
-          >Forgot your email or password?</router-link
-        >
       </form>
     </div>
   </div>
