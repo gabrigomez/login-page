@@ -155,12 +155,6 @@ export default {
   cursor: pointer;
 }
 
-.login-dark form .btn-primary:hover,
-.login-dark form .btn-primary:active {
-  background: #566880;
-  outline: none;
-}
-
 .login-page {
   display: block;
   text-align: center;

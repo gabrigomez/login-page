@@ -76,8 +76,7 @@ export default {
   text-transform: uppercase;
   padding-left: 0px;
 }
-.nav-link:hover,
-.navbar-brand:hover {
+.nav-link:hover {
   color: #ac04ee;
 }
 .nav-item-container {
