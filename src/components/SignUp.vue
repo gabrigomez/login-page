@@ -219,4 +219,12 @@ export default {
 .login-page:hover {
   color: #ba06d6;
 }
+
+::placeholder {
+  text-align: center;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
 </style>
