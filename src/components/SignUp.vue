@@ -53,18 +53,24 @@
             <input
               class="form-control"
               type="password"
-              name="confirmPassword"
+              name="passwordConfirmation"
               placeholder="Confirm your password"
               v-model="passwordConfirmation"
               v-validate="'required|min:3'"
             />
+            <div
+              v-if="submitted && errors.has('passwordConfirmation')"
+              class="alert-danger"
+            >
+              Campo obrigatório!
+            </div>
           </div>
           <div class="form-group">
             <button class="submit-button" type="submit">Sign Up</button>
           </div>
-          <router-link to="/login" class="login-page"
-            >Go to login page</router-link
-          >
+          <router-link to="/login" class="login-page">
+            Go to login page
+          </router-link>
         </form>
       </div>
     </div>
